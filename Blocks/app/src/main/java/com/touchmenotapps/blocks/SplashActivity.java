@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+import com.touchmenotapps.blocks.onboarding.AppIntroActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,10 +30,28 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         }, 2000);
+
+        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(splashImage);
+        Glide.with(this)
+                .load(R.raw.splash)
+                .into(imageViewTarget);
     }
 
     @OnClick(R.id.splash_login_google_btn)
+    public void onGoogleLogin() {
+        startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
+        finish();
+    }
+
+    @OnClick(R.id.splash_login_btn)
     public void onLogin() {
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
+        finish();
+    }
+
+    @OnClick(R.id.splash_signup_btn)
+    public void onSignUp() {
+        startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
+        finish();
     }
 }
