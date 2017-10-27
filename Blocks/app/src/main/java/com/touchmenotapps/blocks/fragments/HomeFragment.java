@@ -62,11 +62,12 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
 
         if(appPreferences.isLoggedInAsKid()) {
             kidsAvatarContainer.setVisibility(View.VISIBLE);
-            homeGridDAOs.add(new HomeGridDAO(R.drawable.ic_flower, "Objects"));
-            homeGridDAOs.add(new HomeGridDAO(R.drawable.ic_cat, "Animals"));
-            homeGridDAOs.add(new HomeGridDAO(R.drawable.ic_explore, "Navigation"));
+            homeGridDAOs.add(new HomeGridDAO(1, R.drawable.ic_flower, "Objects"));
+            homeGridDAOs.add(new HomeGridDAO(2, R.drawable.ic_cat, "Animals"));
+            homeGridDAOs.add(new HomeGridDAO(3, R.drawable.ic_explore, "Navigation"));
         } else {
-            homeGridDAOs.add(new HomeGridDAO(R.drawable.ic_chemistry, "Chemistry"));
+            homeGridDAOs.add(new HomeGridDAO(4, R.drawable.ic_chemistry, "Chemistry"));
+            homeGridDAOs.add(new HomeGridDAO(5, R.drawable.ic_worker, "Build Cities"));
         }
 
         if(appPreferences.getChildAvatar()) {
@@ -75,7 +76,7 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
             kidAvatar.setImageResource(R.drawable.ic_girl);
         }
 
-        avatarText.setText("Hi, " + appPreferences.getChildName() + " what do you want to explore with blocks today?");
+        avatarText.setText("Hi, " + appPreferences.getChildName() + " what do you want to explore with BLOCKS today?");
 
         homeGrid.setLayoutManager(gridLayoutManager);
         homeGrid.setAdapter(homeGridAdapter);
@@ -86,6 +87,15 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
 
     @Override
     public void OnHomeGridItemSelected(HomeGridDAO homeGridDAO) {
-
+        switch (homeGridDAO.getId()) {
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.touchmenotapps.blocks.blocks.api;
 
+import com.touchmenotapps.blocks.blocks.dao.City;
+
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,14 +25,18 @@ public class CityBlocksAPI {
 
     final private int MIN_HOUSES = 3;
     final private int MAX_HOUSES = 7;
+    final private int TOTAL_GRID_ITEMS = 60;
 
     @GET
     @Path("/generate/city")
-    public void getEquations() {
-
+    public City getEquations() {
+        return generateCity();
     }
 
-    public void generateCity() {
+    public City generateCity() {
+        City city = new City();
         int numHouses = ThreadLocalRandom.current().nextInt(MIN_HOUSES, MAX_HOUSES);
+        city.setHouses(numHouses);
+        return city;
     }
 }

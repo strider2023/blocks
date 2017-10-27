@@ -67,11 +67,19 @@ public class SignInActivity extends AppCompatActivity {
                 appPreferences.setLoggedIn();
                 if(userEmail.equalsIgnoreCase("child@next.in")) {
                     appPreferences.loggedInAsKid(true);
+                    appPreferences.setChildName("Arindam");
+                    appPreferences.setChildAge("4");
+                    appPreferences.setChildAvatar(true);
                 } else {
                     appPreferences.loggedInAsKid(false);
+                    appPreferences.setChildName("A Girl");
+                    appPreferences.setChildAge("12");
+                    appPreferences.setChildAvatar(false);
                 }
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
+            } else {
+                Snackbar.make(splashText, "Invalid email id.", Snackbar.LENGTH_LONG).show();
             }
         } else {
             Snackbar.make(splashText, "User email or password cannot be empty.", Snackbar.LENGTH_LONG).show();

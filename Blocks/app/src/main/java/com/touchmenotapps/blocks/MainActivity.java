@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_about:
+                startActivity(new Intent(this, AboutActivity.class));
                 return true;
             case R.id.navigation_logout:
                 appPreferences.setLopggedOut();

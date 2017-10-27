@@ -29,13 +29,13 @@ public class SignUpActivity extends AppCompatActivity {
     ImageView splashIcon;
     @BindView(R.id.signup_name)
     AppCompatEditText nameEditText;
-    @BindView(R.id.signup_name)
+    @BindView(R.id.signup_email)
     AppCompatEditText emailEditText;
-    @BindView(R.id.signup_name)
+    @BindView(R.id.signup_phone_number)
     AppCompatEditText phoneEditText;
-    @BindView(R.id.signup_name)
+    @BindView(R.id.signup_password)
     AppCompatEditText passwordEditText;
-    @BindView(R.id.signup_name)
+    @BindView(R.id.signup_re_enter_password)
     AppCompatEditText rePasswordEditText;
 
     private String name, email, phoneNumber, password;

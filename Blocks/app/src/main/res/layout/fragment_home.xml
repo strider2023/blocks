@@ -32,7 +32,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_word_bubble"
             android:textColor="@android:color/white"
-            android:text="Hi, Arindam what do you want to explore with blocks today?"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
             android:paddingBottom="30dp"

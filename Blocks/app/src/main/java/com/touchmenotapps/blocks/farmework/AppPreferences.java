@@ -60,4 +60,14 @@ public class AppPreferences {
     public String getChildName() {
         return mAppPrefs.getString("childName", "");
     }
+
+    public void setChildAge(String name) {
+        SharedPreferences.Editor edit = mAppPrefs.edit();
+        edit.putString("childAge", name);
+        edit.commit();
+    }
+
+    public String getChildAge() {
+        return mAppPrefs.getString("childAge", "0") + " Yrs";
+    }
 }

@@ -6,6 +6,7 @@ package com.touchmenotapps.blocks.dao;
 
 public class HomeGridDAO {
 
+    private int id;
     private int image;
     private String name;
 
@@ -13,9 +14,18 @@ public class HomeGridDAO {
 
     }
 
-    public HomeGridDAO(int image, String name) {
+    public HomeGridDAO(int id, int image, String name) {
+        this.id = id;
         this.image = image;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getImage() {
