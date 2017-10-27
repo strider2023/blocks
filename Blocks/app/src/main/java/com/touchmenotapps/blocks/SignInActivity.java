@@ -17,34 +17,32 @@ import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.touchmenotapps.blocks.farmework.AppPreferences;
 import com.touchmenotapps.blocks.onboarding.AppIntroActivity;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     @BindView(R.id.splash_app_name)
     AppCompatTextView splashText;
     @BindView(R.id.splash_app_icon)
     ImageView splashIcon;
-    @BindView(R.id.signup_name)
-    AppCompatEditText nameEditText;
-    @BindView(R.id.signup_name)
-    AppCompatEditText emailEditText;
-    @BindView(R.id.signup_name)
-    AppCompatEditText phoneEditText;
-    @BindView(R.id.signup_name)
-    AppCompatEditText passwordEditText;
-    @BindView(R.id.signup_name)
-    AppCompatEditText rePasswordEditText;
+    @BindView(R.id.login_email)
+    AppCompatEditText email;
+    @BindView(R.id.login_password)
+    AppCompatEditText password;
 
-    private String name, email, phoneNumber, password;
+    private Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     private AppPreferences appPreferences;
+    private String userEmail, userPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sign_in);
         ButterKnife.bind(this);
 
         appPreferences = new AppPreferences(this);
@@ -52,28 +50,31 @@ public class SignUpActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(splashIcon);
-                Glide.with(SignUpActivity.this)
+                Glide.with(SignInActivity.this)
                         .load(R.raw.splash)
                         .into(imageViewTarget);
             }
         }, 500);
     }
 
-    @OnClick(R.id.signup_btn)
-    public void OnSigupComplete() {
-        name = nameEditText.getEditableText().toString().trim();
-        email = emailEditText.getEditableText().toString().trim();
-        phoneNumber = phoneEditText.getEditableText().toString().trim();
-        password = passwordEditText.getEditableText().toString().trim();
-
-        //TODO validate all fields
-        if(name.length() > 0) {
-            appPreferences.setLoggedIn();
-            appPreferences.setChildName(name);
-            startActivity(new Intent(this, SelectAvatarActivity.class));
-            finish();
+    @OnClick(R.id.login_btn)
+    public void onUserLogin() {
+        userEmail = email.getEditableText().toString().trim();
+        userPassword = password.getEditableText().toString().trim();
+        if(userEmail.length() > 0 && userPassword.length() > 0) {
+            Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email.getEditableText().toString().trim());
+            if(matcher.find()) {
+                appPreferences.setLoggedIn();
+                if(userEmail.equalsIgnoreCase("child@next.in")) {
+                    appPreferences.loggedInAsKid(true);
+                } else {
+                    appPreferences.loggedInAsKid(false);
+                }
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            }
         } else {
-            Snackbar.make(nameEditText, "Please provide the requested details.", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(splashText, "User email or password cannot be empty.", Snackbar.LENGTH_LONG).show();
         }
     }
 

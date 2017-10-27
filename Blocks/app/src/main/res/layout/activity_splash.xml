@@ -4,73 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/bg_color"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.touchmenotapps.blocks.SplashActivity"
-    android:background="#262626">
+    tools:context="com.touchmenotapps.blocks.SplashActivity">
 
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:fontFamily="sans-serif"
         android:layout_marginTop="30dp"
-        android:textSize="16sp"
-        android:text="Building With"/>
+        android:fontFamily="sans-serif"
+        android:text="Learning With"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/splash_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
         android:fontFamily="sans-serif-condensed"
+        android:text="BLOCKS"
+        android:textColor="@android:color/white"
         android:textSize="64sp"
         android:textStyle="bold"
-        android:text="BLOCKS"/>
+        android:transitionName="splash" />
 
     <ImageView
-        android:id="@+id/splash_image"
+        android:id="@+id/splash_app_icon"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:transitionName="splash"/>
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/splash_login_google_btn"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:backgroundTint="#df4a32"
-        android:elevation="5dp"
-        android:drawableLeft="@drawable/ic_google"
-        android:drawableTint="@android:color/white"
-        android:text="Login with Google"
-        android:textColor="@android:color/white" />
+        android:transitionName="splash" />
 
     <LinearLayout
+        android:id="@+id/splash_button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/splash_login_btn"
-            android:layout_width="0dp"
+            android:id="@+id/splash_login_google_btn"
+            android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_weight="1"
-            android:backgroundTint="#fced2a"
+            android:backgroundTint="#df4a32"
+            android:drawableLeft="@drawable/ic_google"
+            android:drawableTint="@android:color/white"
             android:elevation="5dp"
-            android:text="Login"
-            android:textColor="@color/colorPrimary" />
+            android:text="Login with Google"
+            android:textColor="@android:color/white" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/splash_signup_btn"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:backgroundTint="@android:color/white"
-            android:elevation="5dp"
-            android:text="New Here!"
-            android:textColor="@color/colorPrimary" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/splash_login_btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:backgroundTint="#fced2a"
+                android:elevation="5dp"
+                android:text="Login"
+                android:textColor="@color/colorPrimary" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/splash_signup_btn"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/white"
+                android:elevation="5dp"
+                android:text="New Here!"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

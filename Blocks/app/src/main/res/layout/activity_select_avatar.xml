@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_color"
+    tools:context="com.touchmenotapps.blocks.SelectAvatarActivity">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Avatar"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:id="@+id/boy_avatar_btn"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_boy"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I'm a Boy"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/girl_avatar_btn"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_girl"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I'm a Girl"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
