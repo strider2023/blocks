@@ -23,13 +23,13 @@ public class AppIntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_app_intro);
 
         IntroOnboardingPage scr1 = new IntroOnboardingPage("Magical!",
-                "Flashy helps users to quickly summarize complex topics via flashcards.",
+                "Create and experience the world around you like never before. All you need it a phone and our cardboard kit.",
                 Color.parseColor("#4e43f9"), R.drawable.ic_intro_magical, R.drawable.ic_point);
-        IntroOnboardingPage scr2 = new IntroOnboardingPage("Barrier Free",
-                "We carefully verify all contents so that you can get the best from the app.",
+        IntroOnboardingPage scr2 = new IntroOnboardingPage("Dream Big",
+                "With Blocks your imagination is the only barrier you face. Dream big and fascinate us and the community with your imagination.",
                 Color.parseColor("#7c98fd"), R.drawable.ic_intro_imagine, R.drawable.ic_point);
         IntroOnboardingPage scr3 = new IntroOnboardingPage("Learn & Play",
-                "Page 3 content has not been decided yet, please be patient!",
+                "Blocks inspires kids to learn through informal learning.",
                 Color.parseColor("#4e43f9"), R.drawable.ic_intro_study, R.drawable.ic_point);
 
         ArrayList<IntroOnboardingPage> elements = new ArrayList<>();

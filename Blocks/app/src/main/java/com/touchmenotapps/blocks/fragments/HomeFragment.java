@@ -1,5 +1,6 @@
 package com.touchmenotapps.blocks.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -87,15 +88,26 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
 
     @Override
     public void OnHomeGridItemSelected(HomeGridDAO homeGridDAO) {
-        switch (homeGridDAO.getId()) {
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
+        try {
+            Intent launchIntent;
+            switch (homeGridDAO.getId()) {
+                case 2:
+                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.touchmenotapps.blocks.animal");
+                    startActivity(launchIntent);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.example.abc");
+                    startActivity(launchIntent);
+                    break;
+                case 5:
+                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.touchmenotapps.blocks.city");
+                    startActivity(launchIntent);
+                    break;
+            }
+        } catch (Exception e) {
+
         }
     }
 }
