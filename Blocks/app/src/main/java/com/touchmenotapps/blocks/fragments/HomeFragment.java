@@ -66,6 +66,8 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
             homeGridDAOs.add(new HomeGridDAO(1, R.drawable.ic_flower, "Objects"));
             homeGridDAOs.add(new HomeGridDAO(2, R.drawable.ic_cat, "Animals"));
             homeGridDAOs.add(new HomeGridDAO(3, R.drawable.ic_explore, "Navigation"));
+            homeGridDAOs.add(new HomeGridDAO(4, R.drawable.ic_chemistry, "Chemistry"));
+            homeGridDAOs.add(new HomeGridDAO(5, R.drawable.ic_worker, "Build Cities"));
         } else {
             homeGridDAOs.add(new HomeGridDAO(4, R.drawable.ic_chemistry, "Chemistry"));
             homeGridDAOs.add(new HomeGridDAO(5, R.drawable.ic_worker, "Build Cities"));
@@ -96,9 +98,11 @@ public class HomeFragment extends Fragment implements HomeGridItemListener{
                     startActivity(launchIntent);
                     break;
                 case 3:
+                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.touchmenotapps.blocks.city");
+                    startActivity(launchIntent);
                     break;
                 case 4:
-                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.example.abc");
+                    launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.touchmenotapps.blocks.chemistry");
                     startActivity(launchIntent);
                     break;
                 case 5:
